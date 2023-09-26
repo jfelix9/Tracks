@@ -1,9 +1,8 @@
-/*
-utep colors
-orage: #FF8200
-blue: #041E42
-silver: #B1B3B3
-*/
+:root {
+    --utep-orange: #FF8200;
+    --utep-blue: #041E42;
+    --utep-silver: #B1B3B3;
+}
 
 * {
     font-family: Tahoma, Geneva, sans-serif;
