@@ -3,7 +3,7 @@ session_start();
 include_once '../config/config.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <title>Tracks</title>
@@ -41,10 +41,12 @@ include_once '../config/config.php';
                     </li>
                 </ul>
                 <form action="student-edit-profile.php" method="post" class="d-flex">
-                    <input type="submit" name="editprofile" value="edit profile" class="form-control me-2 btn btn-outline-success" />
+                    <input type="submit" name="editprofile" value="edit profile"
+                        class="form-control me-2 btn btn-outline-success" />
                 </form>
                 <form action="login.php" method="post" class="d-flex">
-                    <input type="submit" name="backtologin" value="logout" class="form-control me-2 btn btn-outline-success" />
+                    <input type="submit" name="backtologin" value="logout"
+                        class="form-control me-2 btn btn-outline-success" />
                 </form>
             </div>
         </div>

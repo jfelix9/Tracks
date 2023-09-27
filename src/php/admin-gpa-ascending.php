@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-bs-theme="dark">
+
 <head>
     <title>Tracks</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
-<h1>Student List by ascending GPA</h1>
+    <h1>Student List by ascending GPA</h1>
 
-<form action="admin-welcome.php" method="post">
-    <input type="submit" name="adminhome" value="home" class="btn"/>
-</form>
+    <form action="admin-welcome.php" method="post">
+        <input type="submit" name="adminhome" value="home" class="btn" />
+    </form>
 
-<?php
+    <?php
     session_start();
-    include_once 'config.php';
+    include_once '../config/config.php';
 
-    $username = $_SESSION['username']; 
+    $username = $_SESSION['username'];
     echo 'logged in as ' . $username . '<br>';
-    
+
     /*
     $queryAdmin = "SELECT * FROM Admin WHERE Auser_name = '" . $username . "';";
     $resultAdmin = $conn->query($queryAdmin);
@@ -36,7 +39,7 @@
 
     $queryAdmin = "SELECT * FROM Student ORDER BY Sgpa;";
     $resultAdmin = $conn->query($queryAdmin);
-    
+
     if ($resultAdmin->num_rows > 0) {
         echo "<table style=\"width:100%\">
             <tr>
@@ -50,7 +53,7 @@
             </tr>";
 
         // output data of each row
-        while($row = $resultAdmin->fetch_assoc()) {
+        while ($row = $resultAdmin->fetch_assoc()) {
             echo "<tr>
             <td>" . $row["Suser_name"] . "</td>
             <td>" . $row["Sfname"] . "</td>
@@ -64,8 +67,9 @@
     } else {
         echo "0 results";
     }
-    
-?>
+
+    ?>
 
 </body>
+
 </html>

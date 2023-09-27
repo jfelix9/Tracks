@@ -1,46 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-bs-theme="dark">
+
 <head>
     <title>Tracks</title>
     <!-- <link rel="stylesheet" href="styles.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
+
 <body>
-<h1>Faculty Dashboard</h1>
+    <h1>Faculty Dashboard</h1>
 
-<form action="faculty-welcome.php" method="post">
-    <input type="submit" name="adminhome" value="home" class="btn"/>
-</form>
-<form action="login.php" method="post">
-    <input type="submit" name="backtologin" value="logout" class="btn"/>
-</form>
-<form action="faculty-search.php" method="post">
-    <input type="submit" name="searchadmin" value="lookup student" class="btn"/>
-</form>
-<form action="faculty-student-list.php" method="post">
-    <input type="submit" name="studentlistadmin" value="see student list" class="btn"/>
-</form>
-<form action="faculty-gpa-ascending.php" method="post">
-    <input type="submit" name="gpa-ascending" value="see students by ascending gpa" class="btn"/>
-</form>
-<form action="faculty-gpa-descending.php" method="post">
-    <input type="submit" name="gpa-descending" value="see students by descending gpa" class="btn"/>
-</form>
-<form action="delete-account.php" method="post">
-    <input type="submit" name="delete-account" value="delete account" class="btn"/>
-</form>
+    <form action="faculty-welcome.php" method="post">
+        <input type="submit" name="adminhome" value="home" class="btn" />
+    </form>
+    <form action="login.php" method="post">
+        <input type="submit" name="backtologin" value="logout" class="btn" />
+    </form>
+    <form action="faculty-search.php" method="post">
+        <input type="submit" name="searchadmin" value="lookup student" class="btn" />
+    </form>
+    <form action="faculty-student-list.php" method="post">
+        <input type="submit" name="studentlistadmin" value="see student list" class="btn" />
+    </form>
+    <form action="faculty-gpa-ascending.php" method="post">
+        <input type="submit" name="gpa-ascending" value="see students by ascending gpa" class="btn" />
+    </form>
+    <form action="faculty-gpa-descending.php" method="post">
+        <input type="submit" name="gpa-descending" value="see students by descending gpa" class="btn" />
+    </form>
+    <form action="delete-account.php" method="post">
+        <input type="submit" name="delete-account" value="delete account" class="btn" />
+    </form>
 
-<?php
+    <?php
     session_start();
-    include_once 'config.php';
+    include_once '../config/config.php';
 
-    $username = $_SESSION['username']; 
+    $username = $_SESSION['username'];
     echo 'logged in as ' . $username . '<br>';
 
     $queryAdmin = "SELECT * FROM Student WHERE Fuser_name = '" . $username . "';";
     $resultAdmin = $conn->query($queryAdmin);
-    
+
     if ($resultAdmin->num_rows > 0) {
         echo "<table>
             <tr>
@@ -54,7 +57,7 @@
             </tr>";
 
         // output data of each row
-        while($row = $resultAdmin->fetch_assoc()) {
+        while ($row = $resultAdmin->fetch_assoc()) {
             echo "<tr>
             <td>" . $row["Suser_name"] . "</td>
             <td>" . $row["Sfname"] . "</td>
@@ -68,8 +71,9 @@
     } else {
         echo "0 results";
     }
-    
-?>
+
+    ?>
 
 </body>
+
 </html>

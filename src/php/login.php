@@ -3,7 +3,7 @@ session_start();
 include_once '../config/config.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en" data-bs-theme="dark">
 
 <head>
   <title>Tracks</title>
@@ -30,7 +30,7 @@ include_once '../config/config.php';
       $_SESSION['student_user'] = $input_username;
       $_SESSION['logged_in'] = true;
       header("Location: student-welcome.php");
-      echo"User found";
+      echo "User found";
     } else {
       echo "We couldn't find that user ¯\_(ツ)_/¯";
     }
