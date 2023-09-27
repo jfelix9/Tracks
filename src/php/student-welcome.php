@@ -89,7 +89,7 @@ include_once '../config/config.php';
 
         $row = mysqli_fetch_array($resultStudent);
 
-        echo '<h2>Basic Info</h2><br>';
+        echo "<h2>Basic Info</h2><br>";
         echo '<dl class="row">';
         echo '<dt class="col-sm-3">Username</dt><dd class="col-sm-9">' . $row['Suser_name'] . '<dd>';
         echo '<dt class="col-sm-3">Name</dt><dd class="col-sm-9">' . $row['Sfname'] . '&nbsp;' . $row['Slname'] . '<dd>';
@@ -113,7 +113,7 @@ include_once '../config/config.php';
         echo '<h2>Milestones</h2>';
 
         if ($resultStudent->num_rows > 0) {
-            echo "<div>
+            echo "<div class=\"card mb-4 p-2\">
         <table>
             <tr>
                 <th>milestones</th>
@@ -128,12 +128,9 @@ include_once '../config/config.php';
                 </div> 
                 </tr>";
             }
-            echo '<br>';
-            echo '<br>';
+            echo "</table></div>";
         } else {
             echo "0 milestones recorded <br>";
-            echo '<br>';
-            echo '<br>';
         }
 
         echo '<h2>Courses </h2>';
@@ -144,7 +141,7 @@ include_once '../config/config.php';
         $row = mysqli_fetch_array($resultStudent);
 
         if ($resultStudent->num_rows > 0) {
-            echo "<div><table>
+            echo "<div class=\"card mb-4 p-2\"><table>
             <tr>
                 <th>courses</th>
             </tr>";
@@ -155,12 +152,9 @@ include_once '../config/config.php';
                 <td>" . $row["Scourses"] . "</td> </div>
                 </tr>";
             }
-            echo '<br>';
-            echo '<br>';
+            echo "</table></div>";
         } else {
             echo "0 courses recorded <br>";
-            echo '<br>';
-            echo '<br>';
         }
 
         echo '<h2>Conferences</h2>';
@@ -171,7 +165,7 @@ include_once '../config/config.php';
         $row = mysqli_fetch_array($resultStudent);
 
         if ($resultStudent->num_rows > 0) {
-            echo "<div><table>
+            echo "<div class=\"card mb-4 p-2\"><table>
             <tr>
                 <th>conferences</th>
             </tr>";
@@ -182,12 +176,9 @@ include_once '../config/config.php';
                 <td>" . $row["Sconferences"] . "</td> 
                 </tr></div>";
             }
-            echo '<br>';
-            echo '<br>';
+            echo "</table></div>";
         } else {
             echo "0 conferences recorded <br>";
-            echo '<br>';
-            echo '<br>';
         }
 
         echo '<h2>Papers</h2>';
@@ -198,7 +189,7 @@ include_once '../config/config.php';
         $row = mysqli_fetch_array($resultStudent);
 
         if ($resultStudent->num_rows > 0) {
-            echo "<div><table>
+            echo "<div class=\"card mb-4 p-2\"><table>
             <tr>
                 <th>paper</th>
                 <th>date published</th>
@@ -211,13 +202,10 @@ include_once '../config/config.php';
                 <td>" . $row["Pdate_published"] . "</td> 
                 </tr></div>";
             }
-            echo '<br>';
-            echo '<br>';
+            echo "</table></div>";
         } else {
             echo "0 papers recorded <br>";
         }
-        echo '<br>';
-        echo '<br>';
         ?>
 
     </div>

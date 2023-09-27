@@ -14,6 +14,11 @@ include_once '../config/config.php';
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="student-welcome.php">TRACKS</a>
+    </div>
+  </nav>
 
   <?php
   if (isset($_POST['username'])) {
@@ -60,6 +65,12 @@ include_once '../config/config.php';
     } else {
       echo "We couldn't find that user ¯\_(ツ)_/¯";
     }
+    if ($_POST["backtologin"]==true) {
+      $_SESSION['student_user'] = "";
+      $_SESSION['advisor_user'] = "";
+      $_SESSION['admin_user'] = "";
+      $_SESSION['logged_in'] = false;
+    }
   }
   ?>
 
@@ -81,13 +92,13 @@ include_once '../config/config.php';
         <input type="submit" name="login" value="log in" class="w-100 btn btn-lg btn-primary" />
       </form>
       <form action="student-signup.php" method="post">
-        <input type="submit" name="signup" value="student sign up" class="m-2" />
+        <input type="submit" name="signup" value="student sign up" class="w-100 my-2" />
       </form>
-      <form action="admin-signup.php" method="post">
+      <!-- <form action="admin-signup.php" method="post">
         <input type="submit" name="admin-signup" value="admin sign up" class="m-2" />
-      </form>
+      </form> -->
       <form action="faculty-signup.php" method="post">
-        <input type="submit" name="faculty-signup" value="faculty sign up" class="m-2" />
+        <input type="submit" name="faculty-signup" value="faculty sign up" class="w-100 mb-2" />
       </form>
     </div>
   </div>
